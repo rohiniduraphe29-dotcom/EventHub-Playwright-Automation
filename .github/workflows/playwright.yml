@@ -29,6 +29,9 @@ jobs:
         run: npx playwright install --with-deps chromium
 
       - name: Run Playwright tests
+        env:
+          EVENTHUB_EMAIL: ${{ secrets.EVENTHUB_EMAIL }}
+          EVENTHUB_PASSWORD: ${{ secrets.EVENTHUB_PASSWORD }}
         run: npx playwright test
 
       - name: Upload Playwright report
